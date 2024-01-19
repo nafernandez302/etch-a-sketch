@@ -1,4 +1,5 @@
 const CONTAINER_SIZE = 540;
+
 function createGrid(size){
     const grid = document.createElement("div");
     grid.classList.add("tile");
@@ -15,8 +16,6 @@ function cleanContainer() {
 const container = document.querySelector(".container");
 const buttonAdd = document.querySelector(".button");
 const input = document.querySelector("#inputTile");
-
-
 
 let isDrawing = false;
 
@@ -57,3 +56,15 @@ buttonAdd.addEventListener("click", function(){
     container.style.width = CONTAINER_SIZE + "px";
     container.style.height = CONTAINER_SIZE + "px";
 });
+
+let n = 40;
+cleanContainer();
+    let size = CONTAINER_SIZE / n;
+    size = size*100;
+    size = Math.floor(size);
+    size = size/100;
+    for (let i = 0; i < n * n; i++) {
+        container.appendChild(createGrid(size));
+    }
+    container.style.width = CONTAINER_SIZE + "px";
+    container.style.height = CONTAINER_SIZE + "px";
