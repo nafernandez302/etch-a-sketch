@@ -25,12 +25,9 @@ body{
     box-sizing: border-box;
     float: left;
     border: 1px solid black;
-    background-color: blue;
+    background-color: rgb(231, 231, 231);
 }
 
-.tile:hover{
-    background-color: #6a62fa;
-}
 
 .button{
     background-color: gray;

@@ -16,6 +16,24 @@ const container = document.querySelector(".container");
 const buttonAdd = document.querySelector(".button");
 const input = document.querySelector("#inputTile");
 
+let isDrawing = false;
+
+container.addEventListener("mousedown", function() {
+    isDrawing = true;
+});
+
+container.addEventListener("mouseup", function() {
+    isDrawing = false;
+});
+
+container.addEventListener("mouseover", function(event) {
+    if (isDrawing) {
+        if (event.target.classList.contains("tile")) {
+            event.target.style.backgroundColor = "black";
+        }
+    }
+});
+
 buttonAdd.addEventListener("click", function(){
     let n = input.value;
     if(n > 50 || n < 1){
