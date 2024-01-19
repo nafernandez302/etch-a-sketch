@@ -1,4 +1,4 @@
-const CONTAINER_SIZE = 480;
+const CONTAINER_SIZE = 540;
 function createGrid(size){
     const grid = document.createElement("div");
     grid.classList.add("tile");
@@ -16,9 +16,14 @@ const container = document.querySelector(".container");
 const buttonAdd = document.querySelector(".button");
 const input = document.querySelector("#inputTile");
 
+
+
 let isDrawing = false;
 
-container.addEventListener("mousedown", function() {
+container.addEventListener("mousedown", function(event) {
+    if (event.target.classList.contains("tile")) {
+        event.target.style.backgroundColor = "black";
+    }
     isDrawing = true;
 });
 
