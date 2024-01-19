@@ -1,6 +1,9 @@
-function createGrid(){
+const CONTAINER_SIZE = 480;
+function createGrid(size){
     const grid = document.createElement("div");
     grid.classList.add("tile");
+    grid.style.width = size + "px";
+    grid.style.height = size + "px";
     return grid;
 }
 
@@ -9,17 +12,17 @@ function cleanContainer() {
     output.innerHTML = ""; // Limpiar el contenido anterior
 }
 
-function appendGrid(container){
-    container.appendChild(createGrid());
-}
-
 const container = document.querySelector(".container");
 const buttonAdd = document.querySelector(".button");
 const input = document.querySelector("#inputTile");
+
 buttonAdd.addEventListener("click", function(){
     cleanContainer();
     let n = input.value;
-    for (let i = 0; i<n; i++) {
-        appendGrid(container);
+    let size = CONTAINER_SIZE/n;
+    console.log(size);
+    for (let i = 0; i< n*n; i++) {
+        container.appendChild(createGrid(size));
     }
+    let classTile = document.querySelector(".tile");
 });
