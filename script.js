@@ -18,18 +18,19 @@ const input = document.querySelector("#inputTile");
 
 buttonAdd.addEventListener("click", function(){
     let n = input.value;
-    if(n>50 || n <1){
+    if(n > 50 || n < 1){
         alert("ERROR: ingrese un número entre 1 y 50");
         return;
     }
+
     cleanContainer();
-    let size = Math.floor(CONTAINER_SIZE/n);
-    let new_container_size = CONTAINER_SIZE - (CONTAINER_SIZE % n);
-    container.style.width = new_container_size  + "px";
-    container.style.height = new_container_size + "px";
-    console.log(size);
-    for (let i = 0; i< n*n; i++) {
+    let size = CONTAINER_SIZE / n;
+    size = size*100;
+    size = Math.floor(size);
+    size = size/100;
+    for (let i = 0; i < n * n; i++) {
         container.appendChild(createGrid(size));
     }
-    let classTile = document.querySelector(".tile");
+    container.style.width = CONTAINER_SIZE + "px";
+    container.style.height = CONTAINER_SIZE + "px";
 });
