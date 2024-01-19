@@ -19,7 +19,10 @@ const input = document.querySelector("#inputTile");
 buttonAdd.addEventListener("click", function(){
     cleanContainer();
     let n = input.value;
-    let size = CONTAINER_SIZE/n;
+    let size = Math.floor(CONTAINER_SIZE/n);
+    let new_container_size = CONTAINER_SIZE - (CONTAINER_SIZE % n);
+    container.style.width = new_container_size  + "px";
+    container.style.height = new_container_size + "px";
     console.log(size);
     for (let i = 0; i< n*n; i++) {
         container.appendChild(createGrid(size));

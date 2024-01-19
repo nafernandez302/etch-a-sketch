@@ -5,9 +5,12 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
+.main-container{
+    display:flex;
+    flex-direction: column;
+}
 .container{
     align-items: center;
     justify-content: center;
